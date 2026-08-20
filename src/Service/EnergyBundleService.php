@@ -14,10 +14,8 @@ class EnergyBundleService
     public function getEnergyChoices(string $country): array
     {
         $energyValues = $this->entityManager->getRepository(EnergyValue::class)->findBy(
-            [
-                'country' => $country,
-                ['label' => 'ASC']
-            ]
+            ['country' => $country],
+            ['label' => 'ASC']
         );
 
         $choices = [];
