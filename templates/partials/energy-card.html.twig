@@ -1,0 +1,42 @@
+<h2>{{ 'bundle.energy.h2.1' | trans }}</h2>
+
+	<ul class="naked">
+
+		{% for label, value in field_choices(form.energy) %}
+            <li>
+				<label class="flex left middle sm">
+	                <input 
+						class="mr-15"
+	                    type="radio"
+	                    name="{{ field_name(form.energy) }}" 
+	                    {{ energy == value ? 'checked' : '' }}
+	                    value="{{value}}"
+	                >
+					<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ value ~ '.svg')) }}">
+	                {{ label }}
+				</label>
+            </li>
+        {% endfor %}
+	</ul>
+
+	{# <h2>{{ 'bundle.energy.h2.2' | trans }}</h2> #}
+
+	{# <ul class="naked">
+		
+		{% for label, value in field_choices(form.emissions) %}
+            <li>
+				<label class="flex left middle sm">
+
+	                <input 
+						class="mr-15"
+	                    type="radio"
+	                    name="{{ field_name(form.emissions) }}" 
+	                    {{ emissions == value ? 'checked' : '' }}
+	                    value="{{value}}"
+	                >
+					<img height="35" src="{{ absolute_url(asset('icons/ges-' ~ value ~ '.svg')) }}">
+	                {{ label }}
+				</label>
+            </li>
+        {% endfor %}
+	</ul> #}
