@@ -5,7 +5,7 @@ namespace aintreallydown\EnergyBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class EnergyBundle extends Bundle
+class EnergyBundleService extends Bundle
 {
     public function build(ContainerBuilder $container): void
     {
