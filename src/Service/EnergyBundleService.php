@@ -16,6 +16,7 @@ class EnergyBundleService
         $energyValues = $this->entityManager->getRepository(EnergyValue::class)->findBy(
             [
                 'country' => $country,
+                ['label' => 'ASC']
             ]
         );
 
