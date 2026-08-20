@@ -9,11 +9,11 @@
 						class="mr-15"
 	                    type="radio"
 	                    name="{{ field_name(form.energy) }}" 
-	                     {{ field_value(form.energy) == value ? 'checked' : '' }}
-	                    value="{{value}}"
+	                     {{ field_value(form.energy) == label ? 'checked' : '' }}
+	                    value="{{label}}"
 	                >
-					<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ value ~ '.svg')) }}">
-	                {{ label }}
+					<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
+	                {{ value }}
 				</label>
             </li>
         {% endfor %}
