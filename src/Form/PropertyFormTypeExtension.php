@@ -6,7 +6,6 @@ use App\Form\PropertyFormType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use aintreallydown\EnergyBundle\Service\EnergyBundleService;
 
 class PropertyFormTypeExtension extends AbstractTypeExtension
@@ -33,13 +32,5 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
             'data' => $currentEnergy,
             'expanded' => true,
         ]);
-    }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'country' => null,
-        ]);
-        $resolver->setAllowedTypes('country', ['string', 'null']);
     }
 }
