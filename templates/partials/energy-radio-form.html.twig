@@ -21,25 +21,26 @@
         {% endfor %}
 	</ul>
 
+	{% if form.emissions is defined %}
+
 	<h2>{{ 'bundle.energy.h2.2' | trans }}</h2> 
-
-	<ul class="naked">
-		
-		{% for label, value in field_choices(form.emissions) %}
+	
+    <ul class="naked">
+        {% for label, value in field_choices(form.emissions) %}
             <li>
-				<label class="flex left middle sm">
-
-	                <input 
-						class="mr-15"
-	                    type="radio"
-	                    name="{{ field_name(form.emissions) }}" 
-	                    {{ field_value(form.emissions) == value ? 'checked' : '' }}
-	                    value="{{value}}"
-	                >
-					<img height="35" src="{{ absolute_url(asset('icons/ges-' ~ value ~ '.svg')) }}">
-	                {{ label|replace({'-': 'bundle.energy.range_separator'|trans}) }}
-				</label>
+                <label class="flex left middle sm">
+                    <input 
+                        class="mr-15"
+                        type="radio"
+                        name="{{ field_name(form.emissions) }}" 
+                        {{ field_value(form.emissions) == value ? 'checked' : '' }}
+                        value="{{ value }}"
+                    >
+                    <img height="35" src="{{ absolute_url(asset('icons/ges-' ~ value ~ '.svg')) }}">
+                    {{ label|replace({'-': 'bundle.energy.range_separator'|trans}) }}
+                </label>
             </li>
         {% endfor %}
-	</ul>
+    </ul>
+{% endif %}
     
