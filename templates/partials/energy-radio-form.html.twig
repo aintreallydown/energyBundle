@@ -1,30 +1,24 @@
 <h2>{{ 'bundle.energy.h2.1' | trans }}</h2>
 
 <ul class="naked">
-
-    {% for label, value in field_choices(form.energy) %}
+    {% for choice in form.energy.vars.choices %}
+        {% set energyValue = choice.data %}
         <li>
             <label class="flex left middle sm">
                 <input 
                     class="mr-15"
                     type="radio"
                     name="{{ field_name(form.energy) }}" 
-                    {{ field_value(form.energy) == value ? 'checked' : '' }}
-                    value="{{ value }}"
+                    {{ field_value(form.energy) == energyValue.value ? 'checked' : '' }}
+                    value="{{ energyValue.value }}"
                 >
-                <img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
+                <img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ energyValue.value ~ '.svg')) }}">
 
-				{{dump(value)}}
-				{{dump(field_value(form.energy))}}
-				{{dump(form.energy.vars)}}
-				{{dump(form.energy.vars.choices)}}
-				{# {{ label }} #}
-
-                {# {% if value.labelMin is not null and value.labelMax is not null %}
-                    {{ value.labelMin ~ ('bundle.energy.range_separator' | trans) ~ value.labelMax }}
+                {% if energyValue.labelMin is not null and energyValue.labelMax is not null %}
+                    {{ energyValue.labelMin ~ ('bundle.energy.range_separator' | trans) ~ energyValue.labelMax }}
                 {% else %}
-                    {{ value.labelMin is not null ? value.labelMin : value.labelMax }}
-                {% endif %} #}
+                    {{ energyValue.labelMin is not null ? energyValue.labelMin : energyValue.labelMax }}
+                {% endif %}
             </label>
         </li>
     {% endfor %}
