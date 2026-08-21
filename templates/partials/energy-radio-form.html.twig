@@ -15,9 +15,9 @@
                 <img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ energyValue.value ~ '.svg')) }}">
 
                 {% if energyValue.labelMin is not null and energyValue.labelMax is not null %}
-                    {{ energyValue.labelMin ~ ('bundle.energy.range_separator' | trans) ~ energyValue.labelMax }}
+                    {{ energyValue.labelMin ~ '' ~ ('bundle.energy.range_separator' | trans) ~ '' ~ energyValue.labelMax }}
                 {% else %}
-                    {{ energyValue.labelMin is not null ? energyValue.labelMin : energyValue.labelMax }}
+                    {{ energyValue.labelMin is not null ? '> ' ~ energyValue.labelMin : '≤ ' ~ energyValue.labelMax }}
                 {% endif %}
             </label>
         </li>
