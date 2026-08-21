@@ -18,17 +18,6 @@ class EnergyBundleService
             ['value' => 'ASC']
         );
 
-        $choices = [];
-
-        foreach ($energyValues as $energyValue) {
-
-            $choices[$energyValue->getValue()] = [
-                'labelMin' => $energyValue->getLabelMin(),
-                'labelMax' => $energyValue->getLabelMax(),
-            ];
-        }
-
-
-        return $choices;
+        return $energyValues;
     }
 }
