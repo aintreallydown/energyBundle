@@ -32,13 +32,5 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
             'data' => $currentEnergy,
             'expanded' => true,
         ]);
-
-        dump($energyChoices);
-        dd($builder->add('energy', ChoiceType::class, [
-            'mapped' => false,
-            'choices' => $energyChoices,
-            'data' => $currentEnergy,
-            'expanded' => true,
-        ]));
     }
 }
