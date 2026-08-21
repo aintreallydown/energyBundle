@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use aintreallydown\EnergyBundle\Service\EnergyBundleService;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class PropertyFormTypeExtension extends AbstractTypeExtension
 {
