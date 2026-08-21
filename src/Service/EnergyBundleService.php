@@ -18,6 +18,11 @@ class EnergyBundleService
             ['value' => 'ASC']
         );
 
-        return $energyValues;
+        $choices = [];
+        foreach ($energyValues as $energyValue) {
+            $choices[$energyValue->getValue()] = $energyValue;
+        }
+
+        return $choices;
     }
 }
