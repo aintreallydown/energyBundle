@@ -46,5 +46,20 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
                 'expanded' => true,
             ]);
         }
+
+        $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+            $form = $event->getForm();
+
+            $property = $form->getData();
+
+            $extrafields = $property->getExtrafields() ?? [];
+            $extrafields['energy'] = $form->get('energy')->getData();
+
+            if ($form->has('emission')) {
+                $extrafields['emission'] = $form->get('emission')->getData();
+            }
+
+            $property->setExtrafields($extrafields);
+        });
     }
 }
