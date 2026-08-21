@@ -20,7 +20,8 @@ class EnergyBundleService
 
         $choices = [];
         foreach ($energyValues as $energyValue) {
-            $choices[$energyValue->getValue()] = $energyValue;
+
+            $choices[$energyValue->getLabel()] = $energyValue->getValue();
         }
 
         return $choices;
