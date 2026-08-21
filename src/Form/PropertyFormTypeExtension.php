@@ -32,7 +32,5 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
             'data' => $currentEnergy,
             'expanded' => true,
         ]);
-
-        dd($energyChoices);
     }
 }
