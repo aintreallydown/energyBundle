@@ -2,25 +2,25 @@
 
 	<ul class="naked">
 
-		{% for label, valueMin, valueMax in field_choices(form.energy) %}
-            <li>
+		{% for label, values in field_choices(form.energy) %}
+			<li>
 				<label class="flex left middle sm">
-	                <input 
+					<input 
 						class="mr-15"
-	                    type="radio"
-	                    name="{{ field_name(form.energy) }}" 
-	                     {{ field_value(form.energy) == label ? 'checked' : '' }}
-	                    value="{{label}}"
-	                >
+						type="radio"
+						name="{{ field_name(form.energy) }}" 
+						{{ field_value(form.energy) == label ? 'checked' : '' }}
+						value="{{ label }}"
+					>
 					<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
-	                	{% if valueMin is not null and valueMax is not null %}
-	                		{{ valueMin ~ 'bundle.energy.range_separator' | trans ~ valueMax }}
-	                	{% else %}
-	                		{{ valueMin is not null ? valueMin : valueMax }}
-	                	{% endif %}
+					{% if values.valueMin is not null and values.valueMax is not null %}
+						{{ values.valueMin ~ ('bundle.energy.range_separator' | trans) ~ values.valueMax }}
+					{% else %}
+						{{ values.valueMin is not null ? values.valueMin : values.valueMax }}
+					{% endif %}
 				</label>
-            </li>
-        {% endfor %}
+			</li>
+		{% endfor %}
 	</ul>
 
 	{# <h2>{{ 'bundle.energy.h2.2' | trans }}</h2> #}
