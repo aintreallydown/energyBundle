@@ -2,7 +2,7 @@
 
 	<ul class="naked">
 
-		{% for label, values in field_choices(form.energy) %}
+		{% for label, value in field_choices(form.energy) %}
 			<li>
 				<label class="flex left middle sm">
 					<input 
@@ -13,10 +13,10 @@
 						value="{{ label }}"
 					>
 					<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
-					{% if values.valueMin is not null and values.valueMax is not null %}
-						{{ values.valueMin ~ ('bundle.energy.range_separator' | trans) ~ values.valueMax }}
+					{% if label.valueMin is not null and label.valueMax is not null %}
+						{{ label.valueMin ~ ('bundle.energy.range_separator' | trans) ~ label.valueMax }}
 					{% else %}
-						{{ values.valueMin is not null ? values.valueMin : values.valueMax }}
+						{{ label.valueMin is not null ? label.valueMin : label.valueMax }}
 					{% endif %}
 				</label>
 			</li>
