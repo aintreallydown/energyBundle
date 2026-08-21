@@ -13,10 +13,10 @@
 					value="{{ label }}"
 				>
 				<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
-				{% if value['valueMin'] is not null and value['valueMax'] is not null %}
-					{{ value['valueMin'] ~ ('bundle.energy.range_separator' | trans) ~ value['valueMax'] }}
+				{% if value.data.valueMin is not null and value.data.valueMax is not null %}
+					{{ value.data.valueMin ~ ('bundle.energy.range_separator' | trans) ~ value.data.valueMax }}
 				{% else %}
-					{{ value['valueMin'] is not null ? value['valueMin'] : value['valueMax'] }}
+					{{ value.data.valueMin is not null ? value.data.valueMin : value.data.valueMax }}
 				{% endif %}
 			</label>
 		</li>
