@@ -14,7 +14,7 @@ class EnergyBundleService
     public function getEnergyChoices(string $country): array
     {
         $energyValues = $this->entityManager->getRepository(EnergyValue::class)->findBy(
-            ['country' => $country],
+            [],
             ['label' => 'ASC']
         );
 
@@ -22,7 +22,11 @@ class EnergyBundleService
 
         foreach ($energyValues as $energyValue) {
 
-            $choices[$energyValue->getLabel()] = $energyValue->getValue();
+            $choices[$energyValue->getLabel()] =
+                [
+                    'valueMin' => $energyValue->getValueMin(),
+                    'valueMax' => $energyValue->getValueMax(),
+                ];
         }
 
         return $choices;
