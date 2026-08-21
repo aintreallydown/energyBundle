@@ -9,14 +9,13 @@
 					class="mr-15"
 					type="radio"
 					name="{{ field_name(form.energy) }}" 
-					{{ field_value(form.energy) == label ? 'checked' : '' }}
-					value="{{ label }}"
+					{{ field_value(form.energy) == value ? 'checked' : '' }}
+					value="{{ value }}"
 				>
-				<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
+				<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ value ~ '.svg')) }}">
 
 				{{dump(value)}}
 				{{dump(label)}}
-				{{dump(form.energy)}}
 				{{dump(form.energy.vars)}}
 				{{dump(form.energy.vars.choices)}}
 				{# {% if value.data.valueMin is not null and value.data.valueMax is not null %}

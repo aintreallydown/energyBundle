@@ -15,18 +15,17 @@ class EnergyBundleService
     {
         $energyValues = $this->entityManager->getRepository(EnergyValue::class)->findBy(
             [],
-            ['label' => 'ASC']
+            ['value' => 'ASC']
         );
 
         $choices = [];
 
         foreach ($energyValues as $energyValue) {
 
-            $choices[$energyValue->getLabel()] =
-                [
-                    'valueMin' => $energyValue->getValueMin(),
-                    'valueMax' => $energyValue->getValueMax(),
-                ];
+            $choices[$energyValue->getValue()] = [
+                'labelMin' => $energyValue->getLabelMin(),
+                'labelMax' => $energyValue->getLabelMax(),
+            ];
         }
 
 
