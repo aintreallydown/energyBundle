@@ -15,15 +15,15 @@
 					<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ value ~ '.svg')) }}">
 
 	                {{ label|replace({'-': 'bundle.energy.range_separator'|trans}) }}
-					
+
 				</label>
             </li>
         {% endfor %}
 	</ul>
 
-	{# <h2>{{ 'bundle.energy.h2.2' | trans }}</h2> #}
+	<h2>{{ 'bundle.energy.h2.2' | trans }}</h2> 
 
-	{# <ul class="naked">
+	<ul class="naked">
 		
 		{% for label, value in field_choices(form.emissions) %}
             <li>
@@ -33,13 +33,13 @@
 						class="mr-15"
 	                    type="radio"
 	                    name="{{ field_name(form.emissions) }}" 
-	                    {{ emissions == value ? 'checked' : '' }}
+	                    {{ field_value(form.emissions) == value ? 'checked' : '' }}
 	                    value="{{value}}"
 	                >
 					<img height="35" src="{{ absolute_url(asset('icons/ges-' ~ value ~ '.svg')) }}">
-	                {{ label }}
+	                {{ label|replace({'-': 'bundle.energy.range_separator'|trans}) }}
 				</label>
             </li>
         {% endfor %}
-	</ul> #}
+	</ul>
     

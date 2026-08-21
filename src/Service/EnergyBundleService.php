@@ -14,7 +14,7 @@ class EnergyBundleService
     public function getEnergyChoices(): array
     {
         $energyValues = $this->entityManager->getRepository(EnergyValue::class)->findBy(
-            [],
+            ['isEnergy' => true],
             ['value' => 'ASC']
         );
 
@@ -23,6 +23,22 @@ class EnergyBundleService
 
             $choices[$energyValue->getLabel()] = $energyValue->getValue();
         }
+
+        return $choices;
+    }
+
+    public function getEmissionChoices(): array
+    {
+        $emissionValues = $this->entityManager->getRepository(EnergyValue::class)->findBy(
+            ['isEmission' => true],
+            ['value' => 'ASC']
+        );
+
+        $choices = [];
+        foreach ($emissionValues as $emissionValue) {
+            $choices[$emissionValue->getLabel()] = $emissionValue->getValue();
+        }
+
 
         return $choices;
     }

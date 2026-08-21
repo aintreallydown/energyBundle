@@ -23,8 +23,12 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
     {
         $energyChoices = $this->energyBundleService->getEnergyChoices();
 
+        $emissionChoices = $this->energyBundleService->getEmissionChoices();
+
         $property = $builder->getData();
+
         $currentEnergy = $property?->getExtrafields()['energy'] ?? null;
+        $currentEmission = $property?->getExtrafields()['emission'] ?? null;
 
         $builder->add('energy', ChoiceType::class, [
             'mapped' => false,
@@ -32,5 +36,15 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
             'data' => $currentEnergy,
             'expanded' => true,
         ]);
+
+        if ($emissionChoices) {
+
+            $builder->add('emission', ChoiceType::class, [
+                'mapped' => false,
+                'choices' => $emissionChoices,
+                'data' => $currentEmission,
+                'expanded' => true,
+            ]);
+        }
     }
 }
