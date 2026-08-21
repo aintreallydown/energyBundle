@@ -21,19 +21,19 @@
         {% endfor %}
 	</ul>
 
-	{% if form.emissions is defined %}
+	{% if form.emission is defined %}
 
 	<h2>{{ 'bundle.energy.h2.2' | trans }}</h2> 
-	
+
     <ul class="naked">
-        {% for label, value in field_choices(form.emissions) %}
+        {% for label, value in field_choices(form.emission) %}
             <li>
                 <label class="flex left middle sm">
                     <input 
                         class="mr-15"
                         type="radio"
-                        name="{{ field_name(form.emissions) }}" 
-                        {{ field_value(form.emissions) == value ? 'checked' : '' }}
+                        name="{{ field_name(form.emission) }}" 
+                        {{ field_value(form.emission) == value ? 'checked' : '' }}
                         value="{{ value }}"
                     >
                     <img height="35" src="{{ absolute_url(asset('icons/ges-' ~ value ~ '.svg')) }}">
