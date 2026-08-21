@@ -1,27 +1,27 @@
 <h2>{{ 'bundle.energy.h2.1' | trans }}</h2>
 
-	<ul class="naked">
+<ul class="naked">
 
-		{% for label, value in field_choices(form.energy) %}
-			<li>
-				<label class="flex left middle sm">
-					<input 
-						class="mr-15"
-						type="radio"
-						name="{{ field_name(form.energy) }}" 
-						{{ field_value(form.energy) == label ? 'checked' : '' }}
-						value="{{ label }}"
-					>
-					<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
-					{% if label['valueMin'] is not null and label['valueMax'] is not null %}
-						{{ label['valueMin'] ~ ('bundle.energy.range_separator' | trans) ~ label['valueMax'] }}
-					{% else %}
-						{{ label['valueMin'] is not null ? label['valueMin'] : label['valueMax'] }}
-					{% endif %}
-				</label>
-			</li>
-		{% endfor %}
-	</ul>
+	{% for label, value in field_choices(form.energy) %}
+		<li>
+			<label class="flex left middle sm">
+				<input 
+					class="mr-15"
+					type="radio"
+					name="{{ field_name(form.energy) }}" 
+					{{ field_value(form.energy) == label ? 'checked' : '' }}
+					value="{{ label }}"
+				>
+				<img height="35" src="{{ absolute_url(asset('icons/dpe-' ~ label ~ '.svg')) }}">
+				{% if value['valueMin'] is not null and value['valueMax'] is not null %}
+					{{ value['valueMin'] ~ ('bundle.energy.range_separator' | trans) ~ value['valueMax'] }}
+				{% else %}
+					{{ value['valueMin'] is not null ? value['valueMin'] : value['valueMax'] }}
+				{% endif %}
+			</label>
+		</li>
+	{% endfor %}
+</ul>
 
 	{# <h2>{{ 'bundle.energy.h2.2' | trans }}</h2> #}
 
