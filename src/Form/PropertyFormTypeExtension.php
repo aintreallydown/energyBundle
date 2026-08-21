@@ -39,7 +39,7 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
 
         if ($emissionChoices) {
 
-            $builder->add('emission', ChoiceType::class, [
+            $builder->add('emissions', ChoiceType::class, [
                 'mapped' => false,
                 'choices' => $emissionChoices,
                 'data' => $currentEmission,
