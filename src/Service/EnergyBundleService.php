@@ -29,6 +29,8 @@ class EnergyBundleService
                 ];
         }
 
+        dd($choices); // Debugging line to inspect the choices array
+
         return $choices;
     }
 }
