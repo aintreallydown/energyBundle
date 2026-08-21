@@ -11,7 +11,7 @@ class EnergyBundleService
         private EntityManagerInterface $entityManager,
     ) {}
 
-    public function getEnergyChoices(string $country): array
+    public function getEnergyChoices(): array
     {
         $energyValues = $this->entityManager->getRepository(EnergyValue::class)->findBy(
             [],

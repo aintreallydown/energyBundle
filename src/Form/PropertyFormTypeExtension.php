@@ -21,7 +21,7 @@ class PropertyFormTypeExtension extends AbstractTypeExtension
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $energyChoices = $this->energyBundleService->getEnergyChoices($options['country'] ?? null);
+        $energyChoices = $this->energyBundleService->getEnergyChoices();
 
         $property = $builder->getData();
         $currentEnergy = $property?->getExtrafields()['energy'] ?? null;
